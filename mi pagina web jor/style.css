@@ -1,0 +1,674 @@
+/* Importación de fuentes de Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap'); /* Nueva importación para el efecto */
+
+/* Variables CSS para colores - ¡NUEVA PALETA AQUÍ! */
+:root {
+    --primary-color: #2C3E50;       /* Azul-grisáceo oscuro para elementos principales */
+    --accent-color: #F39C12;        /* Naranja calabaza para acentos y llamadas a la acción */
+    --secondary-accent: #bbcb2b;    /* Turquesa/Verde azulado para otros acentos (como el borde de las tarjetas) */
+    --light-bg: #ECF0F1;            /* Gris muy claro para fondos de sección claros */
+    --dark-text: #34495E;           /* Azul-grisáceo oscuro para la mayoría del texto */
+    --light-text: #fff;             /* Blanco para texto sobre fondos oscuros */
+    --shadow-color: rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+/* Base global */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    color: var(--dark-text); /* Usando variable */
+    background-color: var(--light-bg); /* Usando variable para el fondo principal */
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 0;
+}
+
+h1, h2, h3 {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--primary-color); /* Usando variable */
+    margin-bottom: 20px;
+}
+
+h1 { font-size: 3em; }
+h2 { font-size: 2.5em; text-align: center; margin-bottom: 40px; }
+h3 { font-size: 1.8em; }
+
+p {
+    margin-bottom: 15px;
+    font-size: 1.1em;
+}
+
+.section-description {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 50px auto;
+    font-size: 1.2em;
+    color: #555; /* Este se puede mantener o cambiar a una variable si se desea más control */
+}
+
+/* Botones */
+.btn {
+    display: inline-block;
+    background-color: var(--accent-color); /* Usando variable */
+    color: var(--light-text); /* Usando variable */
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #D68910; /* Tono más oscuro del nuevo acento: #F39C12 */
+    transform: translateY(-3px); /* Efecto de "levantar" */
+}
+
+.btn-small {
+    padding: 8px 15px;
+    font-size: 0.9em;
+}
+
+.products-btn {
+    margin-top: 30px;
+    display: block;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* --- Header y Navegación --- */
+header {
+    background-color: var(--primary-color); /* Usando variable */
+    color: var(--light-text); /* Usando variable */
+    padding: 15px 0;
+    box-shadow: 0 2px 10px var(--shadow-color); /* Usando variable */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Ajustes para el enlace del logo (ahora contiene imagen y texto) */
+.logo a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: var(--light-text); /* Usando variable */
+}
+
+/* Estilos para la imagen del logo */
+.header-logo {
+    height: 50px;
+    width: auto;
+    display: block;
+}
+
+/* Estilos para el texto del nombre de la empresa */
+.logo .company-name {
+    color: var(--light-text); /* Usando variable */
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-left: 10px;
+    white-space: nowrap;
+}
+
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin-left: 30px;
+}
+
+.nav-links a {
+    color: var(--light-text); /* Usando variable */
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease, transform 0.2s ease;
+    position: relative; /* Para el efecto de subrayado */
+}
+
+.nav-links a:hover {
+    color: var(--accent-color); /* Usando variable */
+    transform: scale(1.05);
+}
+
+.nav-links a::after { /* Efecto de subrayado al pasar el ratón */
+    content: '';
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    background: var(--accent-color); /* Usando variable */
+    display: block;
+    margin-top: 5px;
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+/* Burger Menu (Solo para móviles) */
+.burger {
+    display: none;
+    cursor: pointer;
+}
+
+.burger div {
+    width: 25px;
+    height: 3px;
+    background-color: var(--light-text); /* Usando variable */
+    margin: 5px;
+    transition: all 0.3s ease;
+}
+
+/* --- Hero Section --- */
+.hero-section {
+    /* Mantuve el placeholder. Cambia esto por tu imagen real */
+    background: url('https://via.placeholder.com/1920x800/2C3E50/FFFFFF?text=Fondo+Empresarial') no-repeat center center/cover;
+    color: var(--light-text); /* Usando variable */
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative; /* Para el efecto parallax */
+    background-attachment: fixed; /* Efecto Parallax */
+}
+
+.hero-content {
+    background-color: rgba(44, 62, 80, 0.4); /* Color primario con transparencia (RGB de #2C3E50) */
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.hero-content h1 {
+    font-size: 3.8em;
+    margin-bottom: 15px;
+    color: var(--light-text); /* Usando variable */
+}
+
+.hero-content p {
+    font-size: 1.4em;
+    margin-bottom: 30px;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* Animaciones de entrada para la sección hero */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 1s forwards;
+}
+
+.fade-in.delay-1 { animation-delay: 0.5s; }
+.fade-in.delay-2 { animation-delay: 1s; }
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --- Secciones Generales --- */
+section {
+    padding: 80px 0;
+    overflow: hidden; /* Importante para las animaciones al desplazarse */
+}
+
+.bg-light {
+    background-color: var(--light-bg); /* Usando variable */
+}
+
+/* --- About Section --- */
+.about-section {
+    text-align: center;
+}
+
+.about-cards {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-top: 50px;
+}
+
+/* Estilos de las tarjetas originales */
+.about-cards .card {
+    background-color: var(--light-text); /* Fondo blanco (o light-text) para cards normales */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px var(--shadow-color); /* Usando variable */
+    flex: 1;
+    min-width: 280px;
+    max-width: 350px;
+    position: relative; /* Necesario para posicionar los spans */
+    overflow: hidden; /* Para que los spans no se salgan del borde inicial */
+    z-index: 1; /* Asegura que los spans estén dentro del card */
+    text-decoration: none;
+    transition: background-color 0.5s, transform 0.5s, box-shadow 0.5s; /* Transición para el fondo y la elevación */
+}
+
+/* Estilos específicos para el efecto de borde */
+.about-cards .card.card-effect {
+    /* Aquí se aplican los estilos de la demo del botón, adaptados */
+    background: var(--primary-color); /* Fondo de la tarjeta cambia al color primario oscuro para el efecto */
+    color: var(--light-text); /* Texto claro para contraste sobre el fondo oscuro */
+    text-shadow: none; /* Resetea cualquier text-shadow previo */
+}
+
+.about-cards .card.card-effect:hover {
+    color: var(--clr); /* El color del texto cambia al pasar el ratón (será secondary-accent) */
+    text-shadow: 0 0 5px var(--clr); /* Sombra de texto */
+    transform: translateY(-8px); /* Eleva el elemento, como tu hover original */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada */
+}
+
+.about-cards .card.card-effect h3,
+.about-cards .card.card-effect p {
+    color: inherit; /* Hereda el color del texto del padre para que cambie en hover */
+    z-index: 2; /* Asegura que el contenido esté sobre los spans */
+    position: relative; /* Necesario para z-index */
+}
+
+.about-cards .card.card-effect span {
+    position: absolute;
+    display: block;
+    background: var(--clr); /* Usa la variable --clr del card */
+    box-shadow: 0 0 5px var(--clr);
+}
+
+.about-cards .card.card-effect span:nth-child(1) {
+    left: 0;
+    top: 0;
+    width: 50.5%;
+    height: 3px; /* AUMENTADO A 3PX */
+    transform-origin: left;
+    transform: scaleX(0);
+    transition: transform .5s;
+}
+
+.about-cards .card.card-effect:hover span:nth-child(1) {
+    transform: scaleX(1);
+    transform-origin: right;
+}
+
+.about-cards .card.card-effect span:nth-child(2) {
+    right: 0;
+    top: 0;
+    width: 50.5%;
+    height: 3px; /* AUMENTADO A 3PX */
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform .5s;
+}
+
+.about-cards .card.card-effect:hover span:nth-child(2) {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+.about-cards .card.card-effect span:nth-child(3) {
+    right: 0;
+    top: 0;
+    width: 3px; /* AUMENTADO A 3PX */
+    height: 100%;
+    transform-origin: bottom;
+    transform: scaleY(0);
+    transition: transform .5s;
+    transition-delay: .4s;
+}
+
+.about-cards .card.card-effect:hover span:nth-child(3) {
+    transform: scaleY(1);
+    transform-origin: top;
+}
+
+.about-cards .card.card-effect span:nth-child(4) {
+    left: 0;
+    top: 0;
+    width: 3px; /* AUMENTADO A 3PX */
+    height: 100%;
+    transform-origin: bottom;
+    transform: scaleY(0);
+    transition: transform .5s;
+    transition-delay: .4s;
+}
+
+.about-cards .card.card-effect:hover span:nth-child(4) {
+    transform: scaleY(1);
+    transform-origin: top;
+}
+
+.about-cards .card.card-effect span:nth-child(5) {
+    left: 0;
+    bottom: 0;
+    width: 50.5%;
+    height: 3px; /* AUMENTADO A 3PX */
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform .5s;
+    transition-delay: .8s;
+}
+
+.about-cards .card.card-effect:hover span:nth-child(5) {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+.about-cards .card.card-effect span:nth-child(6) {
+    right: 0;
+    bottom: 0;
+    width: 50.5%;
+    height: 3px; /* AUMENTADO A 3PX */
+    transform-origin: left;
+    transform: scaleX(0);
+    transition: transform .5s;
+    transition-delay: .8s;
+}
+
+.about-cards .card.card-effect:hover span:nth-child(6) {
+    transform: scaleX(1);
+    transform-origin: right;
+}
+
+.about-cards .card h3 {
+    /* Este color se aplica si la tarjeta NO tiene el efecto (fondo blanco por defecto),
+       pero si tiene el efecto, el color se hereda de .card.card-effect (light-text normalmente, secondary-accent en hover) */
+    color: var(--secondary-accent);
+    margin-bottom: 15px;
+}
+
+/* --- Services Section --- */
+.service-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.service-item {
+    background-color: var(--light-text); /* Usando variable (blanco) */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px var(--shadow-color); /* Usando variable */
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-item .icon {
+    font-size: 3em;
+    color: var(--accent-color); /* Usando variable */
+    margin-bottom: 20px;
+}
+
+/* Efecto hover general para elementos de servicio/producto */
+.hover-effect:hover {
+    transform: translateY(-8px); /* Eleva el elemento */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada */
+}
+
+
+/* --- Products Section --- */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.product-item {
+    background-color: var(--light-text); /* Usando variable (blanco) */
+    border-radius: 10px;
+    box-shadow: 0 4px 15px var(--shadow-color); /* Usando variable */
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: contain; /* CAMBIADO DE 'COVER' A 'CONTAIN' */
+    display: block;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.product-item:hover img {
+    transform: scale(1.05); /* Efecto zoom en la imagen al pasar el ratón */
+}
+
+.product-item h3 {
+    margin: 20px 0 10px;
+    color: var(--primary-color); /* Usando variable */
+}
+
+.product-item p {
+    padding: 0 20px;
+    margin-bottom: 20px;
+    font-size: 1em;
+}
+
+.product-item .btn-small {
+    margin-bottom: 20px;
+}
+
+/* Efecto zoom para los items de producto */
+.zoom-effect:hover {
+    transform: scale(1.03); /* Ligeramente más grande */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* --- Contact Section --- */
+.contact-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.contact-info, .contact-form {
+    flex: 1;
+    min-width: 300px;
+    background-color: var(--light-text); /* Usando variable (blanco) */
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px var(--shadow-color); /* Usando variable */
+}
+
+.contact-info h3, .contact-form h3 {
+    color: var(--primary-color); /* Usando variable */
+    margin-bottom: 25px;
+}
+
+.contact-info p {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.contact-info i {
+    color: var(--accent-color); /* Usando variable */
+    margin-right: 15px;
+    font-size: 1.2em;
+}
+
+.social-icons {
+    margin-top: 25px;
+}
+
+.social-icons a {
+    color: var(--primary-color); /* Usando variable */
+    font-size: 1.8em;
+    margin-right: 15px;
+    transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: var(--secondary-accent); /* Usando variable */
+}
+
+.contact-form form {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd; /* Puedes mantener este gris claro o cambiarlo a una variable */
+    border-radius: 5px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1em;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: var(--secondary-accent); /* Usando variable */
+    box-shadow: 0 0 0 3px rgba(26, 188, 156, 0.2); /* RGB de #1ABC9C con transparencia */
+    outline: none;
+}
+
+.contact-form button {
+    align-self: flex-start; /* Alinea el botón a la izquierda */
+}
+
+/* --- Footer --- */
+footer {
+    background-color: var(--primary-color); /* Usando variable */
+    color: var(--light-text); /* Usando variable */
+    text-align: center;
+    padding: 30px 0;
+    font-size: 0.9em;
+}
+
+/* --- Efectos al Desplazarse (Scroll Reveal) --- */
+.scroll-reveal {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.scroll-reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* --- Responsive Design (Media Queries) --- */
+@media (max-width: 768px) {
+    .navbar {
+        flex-wrap: wrap;
+    }
+
+    /* Ajustes para el logo y nombre de la empresa en móvil */
+    .logo a {
+        flex-direction: column; /* Apila el logo y el texto en pantallas pequeñas */
+        align-items: center; /* Centra horizontalmente */
+    }
+    .logo .company-name {
+        margin-left: 0; /* Elimina el margen lateral */
+        margin-top: 5px; /* Añade un pequeño margen superior si se apilan */
+        font-size: 1.2em; /* Ajusta el tamaño para móvil */
+    }
+
+
+    .nav-links {
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        background-color: var(--primary-color); /* Usando variable */
+        position: absolute;
+        top: 70px; /* Ajusta según la altura de tu header */
+        left: 0;
+        transform: translateX(-100%);
+        transition: transform 0.5s ease-in;
+        padding: 20px 0;
+        box-shadow: 0 8px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .nav-links.nav-active {
+        transform: translateX(0%);
+    }
+
+    .nav-links li {
+        margin: 15px 0;
+    }
+
+    .burger {
+        display: block;
+    }
+
+    .hero-content h1 {
+        font-size: 2.5em;
+    }
+
+    .hero-content p {
+        font-size: 1.1em;
+    }
+
+    h2 {
+        font-size: 2em;
+    }
+
+    .about-cards, .service-grid, .product-grid, .contact-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .about-cards .card, .service-item, .product-item, .contact-info, .contact-form {
+        width: 90%;
+        max-width: 400px;
+    }
+
+    .burger.toggle .line1 {
+        transform: rotate(-45deg) translate(-5px, 6px);
+    }
+    .burger.toggle .line2 {
+        opacity: 0;
+    }
+    .burger.toggle .line3 {
+        transform: rotate(45deg) translate(-5px, -6px);
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-content h1 {
+        font-size: 2em;
+    }
+
+    .hero-content p {
+        font-size: 1em;
+    }
+}
